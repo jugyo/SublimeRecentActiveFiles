@@ -1,7 +1,7 @@
 RecentActiveFiles
 ========
 
-Sublime Text 2 plugin that shows and opens recent activate files.
+Sublime Text 2 plugin that shows and opens recent activated files.
 
 ![Screenshot](http://i.imgur.com/T6kIQ.png)
 
