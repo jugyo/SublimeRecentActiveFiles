@@ -1,6 +1,6 @@
 [
     {
-        "caption": "RecentFiles: recent_files",
-        "command": "recent_files"
+        "caption": "RecentActiveFiles: recent_active_files",
+        "command": "recent_active_files"
     }
 ]
