@@ -27,7 +27,7 @@ class RecentActiveFilesCommand(sublime_plugin.WindowCommand):
         else:
             if self.window.active_view() is not None:
                 active_file = self.window.active_view().file_name()
-                files = filter(lambda f: f != active_file, self.recent_active_files)
+                files = list(filter(lambda f: f != active_file, self.recent_active_files))
             else:
                 files = self.recent_active_files
 
