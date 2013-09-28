@@ -10,7 +10,7 @@ The idea was got from here: [GotoRecent](https://github.com/paccator/GotoRecent)
 ## Installation
 
 ```
-$ cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+$ cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 $ git clone https://github.com/jugyo/SublimeRecentActiveFiles.git RecentActiveFiles
 ```
 ## Usage
