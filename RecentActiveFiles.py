@@ -1,4 +1,4 @@
-import sublime_plugin
+import sublime, sublime_plugin
 import os
 
 class RecentActiveFilesEventListener(sublime_plugin.EventListener):
@@ -25,16 +25,13 @@ class RecentActiveFilesCommand(sublime_plugin.WindowCommand):
         if file_name:
             self.unshift(file_name)
         else:
-            if self.window.active_view() is not None:
-                active_file = self.window.active_view().file_name()
-                files = list(filter(lambda f: f != active_file, self.recent_active_files))
-            else:
-                files = self.recent_active_files
-
-            items = [[os.path.basename(f), self.path_form_project(f)] for f in files]
+            items = [[os.path.basename(f), self.path_form_project(f)] for f in self.recent_active_files]
 
             def on_done(index):
                 if index >= 0:
-                    self.window.open_file(files[index])
+                    self.window.open_file(self.recent_active_files[index])
+                else:
+                    if len(self.recent_active_files) > 0:
+                        self.window.open_file(self.recent_active_files[0])
 
-            self.window.show_quick_panel(items, on_done)
+            self.window.show_quick_panel(items, on_done, sublime.MONOSPACE_FONT, -1, on_done)
