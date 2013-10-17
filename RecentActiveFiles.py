@@ -34,4 +34,8 @@ class RecentActiveFilesCommand(sublime_plugin.WindowCommand):
                     if len(self.recent_active_files) > 0:
                         self.window.open_file(self.recent_active_files[0])
 
-            self.window.show_quick_panel(items, on_done, sublime.MONOSPACE_FONT, -1, on_done)
+            def on_highlight(index):
+                if index >= 0:
+                    self.window.open_file(self.recent_active_files[index], sublime.TRANSIENT)
+
+            self.window.show_quick_panel(items, on_done, sublime.MONOSPACE_FONT, -1, on_highlight)
