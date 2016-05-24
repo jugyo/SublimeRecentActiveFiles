@@ -29,13 +29,13 @@ class RecentActiveFilesCommand(sublime_plugin.WindowCommand):
 
             def on_done(index):
                 if index >= 0:
-                    self.window.open_file(self.recent_active_files[index])
+                    self.window.open_file(items[index][1])
                 else:
                     if len(self.recent_active_files) > 0:
-                        self.window.open_file(self.recent_active_files[0])
+                        self.window.open_file(items[0][1])
 
             def on_highlight(index):
                 if index >= 0:
-                    self.window.open_file(self.recent_active_files[index], sublime.TRANSIENT)
+                    self.window.open_file(items[index][1], sublime.TRANSIENT)
 
             self.window.show_quick_panel(items, on_done, sublime.MONOSPACE_FONT, -1, on_highlight)
